@@ -36,6 +36,34 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
     window.location.href = url_link_redirect_pc;
   }
 </script>
+<!-- 1. Preconnect e preload para acelerar carregamento de recursos externos -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" media="print" onload="this.media='all'">
+
+<!-- 2. Async/defer para scripts não bloquearem o carregamento -->
+<script defer src="seuscript.js"></script>
+
+<!-- 3. Remover FOUC (flash de conteúdo sem estilo) -->
+<style>
+  body { visibility: hidden; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.body.style.visibility = 'visible';
+  });
+</script>
+
+<!-- 4. Lazyload em imagens -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imgs = document.querySelectorAll("img");
+    imgs.forEach(img => {
+      img.loading = "lazy";
+    });
+  });
+</script>
   <meta charset="utf-8">
   <title> FARMA NEWS </title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
