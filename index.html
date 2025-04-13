@@ -46,14 +46,21 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
  <meta name="facebook-domain-verification" content="bsdfrjo5lqoinqvonxmxdkz0748o17" />
-<script>
-  (() => {
-    const isMobile = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    location.replace(isMobile 
-      ? "https://www.farmanews.online/" 
-      : "https://l.facebook.com/l.php?u=https%3A%2F%2Fnaturalmounjamethod.online%2F&h=AT28jLYwuZIeGoVCV0ybsok2b1GcByKXGj6csbWd8pYn8_3MpjHB7YUD2wfS2M-MKV7cE-19Ow-rnQJDPi3PNsa_z_NcG8G512VKcQWpABtTtxd3khKrp3sK-RBKRGc6f7xvU-URfmX3kq9UQD1SMw");
-  })();
-</script>
+<script type="text/javascript">
+  //digite a url de redirect
+  var url_link_redirect_pc = "https://l.facebook.com/l.php?u=https%3A%2F%2Fnaturalmounjamethod.online%2F&h=AT28jLYwuZIeGoVCV0ybsok2b1GcByKXGj6csbWd8pYn8_3MpjHB7YUD2wfS2M-MKV7cE-19Ow-rnQJDPi3PNsa_z_NcG8G512VKcQWpABtTtxd3khKrp3sK-RBKRGc6f7xvU-URfmX3kq9UQD1SMw";
+
+  //function js
+  function isMobile() {
+   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+   return regex.test(navigator.userAgent);
+  }
+
+  //validation js
+  if (isMobile()) { console.log("Mobile device detected"); } else {
+   window.location = url_link_redirect_pc;
+  }
+ </script>
   <meta charset="utf-8">
   <title> FARMA NEWS </title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
