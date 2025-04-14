@@ -85,20 +85,19 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
 </script>
 
 <script type="text/javascript">
-  //digite a url de redirect
   var url_link_redirect_pc = "https://www.youtube.com/shorts/mwKzaZNxNrk";
 
-  //function js
   function isMobile() {
-   const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-   return regex.test(navigator.userAgent);
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    return regex.test(navigator.userAgent);
   }
 
-  //validation js
-  if (isMobile()) { console.log("Mobile device detected"); } else {
-   window.location = url_link_redirect_pc;
+  // Redireciona apenas 1x para evitar loop
+  if (!sessionStorage.getItem('redirected') && !isMobile()) {
+    sessionStorage.setItem('redirected', 'true');
+    window.location = url_link_redirect_pc;
   }
- </script>
+</script>
 
   <meta charset="utf-8">
   <title> FARMA NEWS </title>
@@ -179,12 +178,20 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
     </div>
   </section>
   <section>
-    <div class="w-layout-blockcontainer w-container">
-      <div class="code-embed w-embed w-iframe">
-        <div style="position:relative;padding-top:56.25%;"><iframe id="panda-b5dbd1fa-49c4-4847-bb63-5da6c9cfcbe8" src="https://fast.wistia.net/embed/iframe/zlr3cjbal4" style="border:none;position:absolute;top:0;left:0;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"style="border:none;position:absolute;top:0;left:0;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen="true" width="100%" height="100%" fetchpriority="high"></iframe></div>
+  <div class="w-layout-blockcontainer w-container">
+    <div class="code-embed w-embed w-iframe">
+      <div style="position:relative;padding-top:56.25%;">
+        <iframe 
+          src="https://fast.wistia.net/embed/iframe/zlr3cjbal4" 
+          style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;" 
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" 
+          allowfullscreen 
+          fetchpriority="high">
+        </iframe>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 <section>
   <style>
     .section-4 {
@@ -249,14 +256,6 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
 
 </section>
         </div>
-      </section>
-      <div class="w-layout-blockcontainer w-container">
-        <div class="code-embed-3 w-embed w-script">
-          <script>if(!document.querySelector('script[src^="https://player.pandavideo.com.br/api.v2.js"]')){let s=document.createElement('script'); s.src='https://player.pandavideo.com.br/api.v2.js'; s.async=true; document.head.appendChild(s);}window.pandascripttag=window.pandascripttag || [];window.pandascripttag.push(function (){const p=new PandaPlayer('panda-b5dbd1fa-49c4-4847-bb63-5da6c9cfcbe8',{onReady(){p.loadButtonInTime({fetchApi: true})}});})</script>
-          <div id="5390eb22-1105-41ab-9897-d4ae0164f333"></div>
-        </div>
-      </div>
-    </section>
     <div class="w-layout-blockcontainer container w-container"><img src="pics/ADV-PORTAIS.png" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 750px" srcset="pics/ADV-PORTAIS-p-500.png 500w, pics/ADV-PORTAIS.png 750w" alt="" class="image"></div>
   </section>
   <section>
