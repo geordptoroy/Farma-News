@@ -28,6 +28,7 @@
     });
   });
 </script>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -46,6 +47,43 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
  <meta name="facebook-domain-verification" content="bsdfrjo5lqoinqvonxmxdkz0748o17" />
+
+<script>
+  // VSL Watch Time Tracking (25s, 60s, 90s)
+  setTimeout(function() {
+    fbq('trackCustom', 'VSL_25s');
+  }, 25000);
+
+  setTimeout(function() {
+    fbq('trackCustom', 'VSL_60s');
+  }, 60000);
+
+  setTimeout(function() {
+    fbq('trackCustom', 'VSL_90s');
+  }, 90000);
+
+  // Botão CTA - Quando aparece na tela
+  document.addEventListener("DOMContentLoaded", function() {
+    let cta = document.querySelector('#cta-button'); // ID do botão CTA
+
+    if (cta) {
+      let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            fbq('trackCustom', 'CTA_Visible');
+          }
+        });
+      });
+      observer.observe(cta);
+
+      // Botão CTA - Clique
+      cta.addEventListener('click', function() {
+        fbq('trackCustom', 'CTA_Clicked');
+      });
+    }
+  });
+</script>
+
 <script type="text/javascript">
   //digite a url de redirect
   var url_link_redirect_pc = "https://l.facebook.com/l.php?u=https%3A%2F%2Fnaturalmounjamethod.online%2F&h=AT28jLYwuZIeGoVCV0ybsok2b1GcByKXGj6csbWd8pYn8_3MpjHB7YUD2wfS2M-MKV7cE-19Ow-rnQJDPi3PNsa_z_NcG8G512VKcQWpABtTtxd3khKrp3sK-RBKRGc6f7xvU-URfmX3kq9UQD1SMw";
@@ -61,6 +99,7 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
    window.location = url_link_redirect_pc;
   }
  </script>
+
   <meta charset="utf-8">
   <title> FARMA NEWS </title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
