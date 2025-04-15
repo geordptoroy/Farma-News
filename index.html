@@ -269,7 +269,7 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
   function mapProgressLinearToFastStart(currentTime, duration) {
     const progress = currentTime / duration;
     if (progress <= 0.4) {
-      return progress * (1.0 / 0.4); // Acelera nos 40% iniciais
+      return progress * (2.0 / 0.4); // Acelera nos 40% iniciais
     } else {
       return 0.7 + ((progress - 0.4) / 0.6) * 0.3; // Lento nos 60% finais
     }
