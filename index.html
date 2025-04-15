@@ -207,27 +207,47 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
       const overlay = document.getElementById("pause-overlay");
       let lastTime = 0;
       let paused = false;
+      let videoStarted = false;
 
-      setInterval(() => {
+      // Monitor de progresso real
+      const monitor = () => {
         const currentTime = video.time();
 
-        if (Math.abs(currentTime - lastTime) < 0.1) {
-          if (!paused) {
-            overlay.style.display = "block";
-            paused = true;
-          }
-        } else {
-          if (paused) {
-            overlay.style.display = "none";
-            paused = false;
+        if (!videoStarted && currentTime > 0.5) {
+          videoStarted = true;
+        }
+
+        if (videoStarted) {
+          if (Math.abs(currentTime - lastTime) < 0.1) {
+            if (!paused) {
+              overlay.style.display = "block";
+              paused = true;
+            }
+          } else {
+            if (paused) {
+              overlay.style.display = "none";
+              paused = false;
+            }
           }
         }
 
         lastTime = currentTime;
-      }, 1000);
+      };
+
+      // Checa a cada meio segundo
+      setInterval(monitor, 500);
+
+      // Também esconde overlay ao clique ou toque
+      ['click', 'touchstart'].forEach(evt =>
+        document.addEventListener(evt, () => {
+          overlay.style.display = 'none';
+          paused = false;
+        })
+      );
     }
   });
 </script>
+
 
       </div>
     </div>
