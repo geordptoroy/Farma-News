@@ -236,7 +236,7 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
         }
 
         if (videoStarted) {
-          if (Math.abs(currentTime - lastTime) < 0.05) {
+          if (Math.abs(currentTime - lastTime) < 0.1) {
             if (!paused) {
               overlay.style.display = "block";
               paused = true;
