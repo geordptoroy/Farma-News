@@ -206,20 +206,40 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
 
 <script>
   window._wq = window._wq || [];
-  _wq.push({
-    id: "zlr3cjbal4",
-    onReady: function(video) {
-      const overlay = document.getElementById("pause-overlay");
+_wq.push({
+  id: "zlr3cjbal4",
+  onReady: function(video) {
+    const overlay = document.getElementById("pause-overlay");
 
-      video.bind("pause", function() {
-        overlay.style.display = "block";
-      });
-
-      video.bind("play", function() {
-        overlay.style.display = "none";
-      });
+    function showOverlay() {
+      overlay.style.display = "block";
     }
-  });
+
+    function hideOverlay() {
+      overlay.style.display = "none";
+    }
+
+    // Detecta play/pause normalmente
+    video.bind("pause", showOverlay);
+    video.bind("play", hideOverlay);
+
+    // Fallback para mobile: evento touch que simula pause
+    document.addEventListener("touchend", function() {
+      setTimeout(function() {
+        if (video && !video.isPlaying()) {
+          showOverlay();
+        }
+      }, 300);
+    });
+
+    // Quando vídeo volta a tocar
+    document.addEventListener("touchstart", function() {
+      if (video && video.isPlaying()) {
+        hideOverlay();
+      }
+    });
+  }
+});
 </script>
       </div>
     </div>
