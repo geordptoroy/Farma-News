@@ -169,58 +169,17 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
   <section>
   <div class="w-layout-blockcontainer w-container">
     <div class="code-embed w-embed w-iframe">
-<!-- Container com posição relativa -->
-<div style="position:relative; width:100%; padding-top:56.25%;">
-  <!-- Player embed correto via Wistia -->
-  <div 
-    class="wistia_embed wistia_async_zlr3cjbal4"
-    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-    allowtransparency="true" 
-    frameborder="0" 
-    scrolling="no" 
-    allowfullscreen 
-    mozallowfullscreen 
-    webkitallowfullscreen 
-    oallowfullscreen 
-    msallowfullscreen>
-  </div>
-
-  <!-- Imagem que aparece ao pausar -->
-  <img 
-    src="pics/Ban.png" 
-    id="pause-overlay" 
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-      pointer-events: none;
-    " />
-</div>
-
-<!-- Script Wistia -->
-<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-
-<script>
-  window._wq = window._wq || [];
-  _wq.push({
-    id: "zlr3cjbal4",
-    onReady: function(video) {
-      const overlay = document.getElementById("pause-overlay");
-
-      video.bind("pause", function() {
-        overlay.style.display = "block";
-      });
-
-      video.bind("play", function() {
-        overlay.style.display = "none";
-      });
-    }
-  });
-</script>
+<section>
+  <div class="w-layout-blockcontainer w-container">
+    <div class="code-embed w-embed w-iframe">
+      <div style="position:relative;padding-top:56.25%;">
+        <iframe 
+          src="https://fast.wistia.net/embed/iframe/zlr3cjbal4" 
+          style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;" 
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture" 
+          allowfullscreen 
+          fetchpriority="high">
+        </iframe>
       </div>
     </div>
   </div>
