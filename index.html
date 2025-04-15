@@ -267,11 +267,16 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
 
 <script>
   function mapProgressLinearToFastStart(currentTime, duration) {
+    const fastEndRatio = 0.1;   // 10% do vídeo real
+    const barFastRatio = 0.4;   // 40% da barra visual
+
     const progress = currentTime / duration;
-    if (progress <= 0.4) {
-      return progress * (2.0 / 0.4); // Acelera nos 40% iniciais
+
+    if (progress <= fastEndRatio) {
+      return (progress / fastEndRatio) * barFastRatio;
     } else {
-      return 0.7 + ((progress - 0.4) / 0.6) * 0.3; // Lento nos 60% finais
+      const remainingProgress = (progress - fastEndRatio) / (1 - fastEndRatio);
+      return barFastRatio + remainingProgress * (1 - barFastRatio);
     }
   }
 
@@ -279,21 +284,53 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
   _wq.push({
     id: "zlr3cjbal4",
     onReady: function(video) {
-      // ⬅️ este código pode coexistir com a imagem de pausa
-
+      const overlay = document.getElementById("pause-overlay");
       const progressBar = document.getElementById("custom-progress-bar");
 
-      video.bind("timechange", function(currentTime) {
+      let lastTime = 0;
+      let paused = false;
+      let videoStarted = false;
+
+      setInterval(() => {
+        const currentTime = video.time();
         const duration = video.duration();
+
+        // ⏱️ Mostrar progresso visual
         const visualProgress = mapProgressLinearToFastStart(currentTime, duration);
         progressBar.style.width = (visualProgress * 100) + "%";
-      });
+
+        // 🎬 Lógica de imagem de pausa
+        if (!videoStarted && currentTime > 0.1) {
+          videoStarted = true;
+        }
+
+        if (videoStarted) {
+          if (Math.abs(currentTime - lastTime) < 0.05) {
+            if (!paused) {
+              overlay.style.display = "block";
+              paused = true;
+            }
+          } else {
+            if (paused) {
+              overlay.style.display = "none";
+              paused = false;
+            }
+          }
+        }
+
+        lastTime = currentTime;
+      }, 100);
+
+      // 🧼 Esconde overlay ao tocar ou clicar
+      ['click', 'touchstart'].forEach(evt =>
+        document.addEventListener(evt, () => {
+          overlay.style.display = 'none';
+          paused = false;
+        })
+      );
     }
   });
 </script>
-
-
-
 
       </div>
     </div>
