@@ -31,58 +31,56 @@
 
 <!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1691061968200016');
-fbq('track', 'PageView');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1691061968200016');
+  fbq('trackCustom', 'SellsPage'); // Página de vendas
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1691061968200016&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
- <meta name="facebook-domain-verification" content="bsdfrjo5lqoinqvonxmxdkz0748o17" />
+
+<meta name="facebook-domain-verification" content="bsdfrjo5lqoinqvonxmxdkz0748o17" />
 
 <script>
-  // VSL Watch Time Tracking (25s, 60s, 90s)
-  setTimeout(function() {
-    fbq('trackCustom', 'VSL_25s');
-  }, 25000);
-
+  // Watch Time Tracking (60s e 5min)
   setTimeout(function() {
     fbq('trackCustom', 'VSL_60s');
   }, 60000);
 
   setTimeout(function() {
-    fbq('trackCustom', 'VSL_90s');
-  }, 90000);
+    fbq('trackCustom', 'VSL_5min');
+  }, 300000);
 
-  // Botão CTA - Quando aparece na tela
+  // Botão CTA - Quando aparece na tela e clique
   document.addEventListener("DOMContentLoaded", function() {
-    let cta = document.querySelector('botao-compra'); // ID do botão CTA
+    let cta = document.querySelector('#botao-compra');
 
     if (cta) {
       let observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            fbq('trackCustom', 'CTA_Visible');
+            fbq('trackCustom', 'CTA_Visible_I_Want_My_Natural_Mounjaro_Now');
           }
         });
       });
       observer.observe(cta);
 
-      // Botão CTA - Clique
       cta.addEventListener('click', function() {
-        fbq('trackCustom', 'CTA_Clicked');
+        fbq('trackCustom', 'CTA_Clicked_I_Want_My_Natural_Mounjaro_Now');
       });
     }
   });
 </script>
+
 
 <script type="text/javascript">
   //digite a url de redirect
