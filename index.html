@@ -357,10 +357,22 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
   </div>
 </section>
 <section class="section-4" id="secao-compra">
-  <button id="botao-compra" onclick="window.location.href='https://pay.hotmart.com/I96566685U?off=8lx2igbo&checkoutMode=10'">
+  <button id="botao-compra">
     I Want Natural Mounjaro Now!
   </button>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("botao-compra");
+    if (btn) {
+      btn.addEventListener("click", function () {
+        fbq('trackCustom', 'CTA_Clicked_I_Want_My_Natural_Mounjaro_Now');
+        window.location.href = "https://pay.hotmart.com/I96566685U?off=8lx2igbo&checkoutMode=10";
+      });
+    }
+  });
+</script>
 
 <style>
   .section-4 {
