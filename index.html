@@ -52,7 +52,10 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
 
 <script>
   // Watch Time Tracking (60s e 5min)
+  let hasWatched60s = false;
+
   setTimeout(function() {
+    hasWatched60s = true;
     fbq('trackCustom', 'VSL_60s');
   }, 60000);
 
@@ -60,7 +63,7 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
     fbq('trackCustom', 'VSL_5min');
   }, 300000);
 
-  // Botão CTA - Quando aparece na tela e clique
+  // Botão CTA - Visível e Clique
   document.addEventListener("DOMContentLoaded", function() {
     let cta = document.querySelector('#botao-compra');
 
@@ -79,7 +82,15 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
       });
     }
   });
+
+  // Rastreamento de abandono da página antes de 60 segundos
+  window.addEventListener("beforeunload", function (e) {
+    if (!hasWatched60s) {
+      fbq('trackCustom', 'PageAbandon');
+    }
+  });
 </script>
+
 
 
 <script type="text/javascript">
