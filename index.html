@@ -355,15 +355,19 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.getElementById("botao-compra");
-    if (btn) {
-      btn.addEventListener("click", function () {
-        fbq('trackCustom', 'CTA_Clicked_I_Want_My_Natural_Mounjaro_Now');
-        window.location.href = "https://pay.hotmart.com/I96566685U?off=8lx2igbo&checkoutMode=10";
-      });
-    }
-  });
+ document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("botao-compra");
+  if (btn) {
+    btn.addEventListener("click", function () {
+      fbq('trackCustom', 'CTA_Clicked_I_Want_My_Natural_Mounjaro_Now');
+      window.open(
+        "https://pay.hotmart.com/I96566685U?off=8lx2igbo&checkoutMode=10",
+        "_blank"
+      );
+    });
+  }
+});
+
 </script>
 
 <style>
