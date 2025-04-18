@@ -393,7 +393,7 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
 
   #checkout-container {
     width: 100%;
-    height: 100vh; /* ocupa toda altura visível */
+    height: 100vh;
     margin-top: 30px;
     display: none;
   }
@@ -411,6 +411,7 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
     }
   }
 </style>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const btn = document.getElementById("botao-compra");
@@ -421,23 +422,24 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
       btn.addEventListener("click", function () {
         fbq('trackCustom', 'CTA_Clicked_I_Want_My_Natural_Mounjaro_Now');
 
+        // Evita redirecionamento, mostra o iframe
         iframe.src = "https://pay.hotmart.com/I96566685U?off=8lx2igbo&checkoutMode=10&embed=true";
         checkoutContainer.style.display = "block";
 
-        // Rastrear quando iframe estiver visível
+        // Esconde o botão
+        btn.style.display = "none";
+
+        // Track custom pixel event
         fbq('trackCustom', 'Checkout_Embedded_Visible');
       });
     }
   });
 
-  // Exibe botão após 5min (1569s)
+  // Exibe botão após 5 minutos (1569000 ms)
   setTimeout(function () {
     document.getElementById("secao-compra").style.display = "flex";
-  }, 3);
+  }, 1569000);
 </script>
-
-
-
 </section>
         </div>
     <div class="w-layout-blockcontainer container w-container"><img src="pics/ADV-PORTAIS.png" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 750px" srcset="pics/ADV-PORTAIS-p-500.png 500w, pics/ADV-PORTAIS.png 750w" alt="" class="image"></div>
