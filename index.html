@@ -364,15 +364,16 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
 </section>
 
 <style>
-  .section-4 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    background: none;
-  }
+ .section-4 {
+  display: none; /* agora ela não aparece inicialmente */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  background: none;
+}
+
 
   #checkout-container {
     width: 100%;
@@ -411,10 +412,11 @@ src="https://www.facebook.com/tr?id=1691061968200016&ev=SellsPage&noscript=1"
     }
   });
 
-  // Exibe botão após 5 minutos (1569000 ms)
-  setTimeout(function () {
-    document.getElementById("secao-compra").style.display = "flex";
-  }, 1569000);
+ // Exibe seção após 26 minutos e 15 segundos (1575000 ms)
+setTimeout(function () {
+  document.getElementById("secao-compra").style.display = "flex";
+}, 1575000);
+
 </script>
 
   <section>
